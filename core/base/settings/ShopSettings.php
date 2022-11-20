@@ -16,17 +16,9 @@ class ShopSettings
     ];
 
     private $templateArr = [
-      'text' => ['price', 'short'],
-      'textarea' => ['goods_content']
+        'text' => ['price', 'short'],
+        'textarea' => ['goods_content']
     ];
-
-    private function __construct()
-    {
-    }
-
-    private function __clone()
-    {
-    }
 
     static public function get($property)
     {
@@ -42,6 +34,25 @@ class ShopSettings
         self::$_instance = new self;
         self::instance()->baseSettings = Settings::instance();
         $baseProperties = self::instance()->baseSettings->clueProperties(get_class());
+        self::$_instance->setProperty($baseProperties);
+
         return self::$_instance;
+    }
+
+    protected function setProperty($properties)
+    {
+        if ($properties) {
+            foreach ($properties as $name => $property) {
+                $this->$name = $property;
+            }
+        }
+    }
+
+    private function __construct()
+    {
+    }
+
+    private function __clone()
+    {
     }
 }

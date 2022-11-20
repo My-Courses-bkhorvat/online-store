@@ -12,7 +12,7 @@ class Settings
             'path' => 'core/admin/controller/',
             'hrUrl' => false,
             'routes' => [
-                'product' => 'goods/getGoods/sale'
+
             ]
         ],
         'settings' => [
@@ -27,7 +27,7 @@ class Settings
             'path' => 'core/user/controller/',
             'hrUrl' => true,
             'routes' => [
-                'catalog' => 'site/hello/by'
+
             ]
         ],
         'default' => [

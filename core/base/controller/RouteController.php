@@ -3,7 +3,8 @@
 namespace core\base\controller;
 
 use core\base\settings\Settings;
-use core\base\settings\ShopSettings;
+
+//use core\base\settings\ShopSettings;
 
 class RouteController
 {
@@ -57,7 +58,7 @@ class RouteController
 
                     if (file_exists($_SERVER['DOCUMENT_ROOT'] . PATH . $pluginSettings . '.php')) {
                         $pluginSettings = str_replace('/', '\\', $pluginSettings);
-                        $this->routes = $pluginSetting::get('routes');
+                        $this->routes = $pluginSettings::get('routes');
                     }
 
                     $dir = $this->routes['plugins']['dir'] ? '/' . $this->routes['plugins']['dir'] . '/' : '/';
@@ -75,6 +76,7 @@ class RouteController
 
                     $route = 'admin';
                 }
+
             } else {
                 $url = explode('/', substr($adress_str, strlen(PATH)));
 
@@ -109,7 +111,6 @@ class RouteController
                 }
             }
 
-            exit();
         } else {
             try {
                 throw new \Exception('Не коректна директорія сайту.');

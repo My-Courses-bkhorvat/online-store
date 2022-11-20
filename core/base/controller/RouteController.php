@@ -47,7 +47,7 @@ class RouteController
                 throw new \Exception('Сайт знаходиться на технічному обслуговуванні.');
             }
 
-            if (strpos($adress_str, $this->routes['admin']['alias'] === strlen(PATH))) {
+            if (strpos($adress_str, $this->routes['admin']['alias']) === strlen(PATH)) {
                 $url = explode('/', substr($adress_str, strlen(PATH . $this->routes['admin']['alias']) + 1));
 
                 if ($url[0] && is_dir($_SERVER['DOCUMENT_ROOT'] . PATH . $this->routes['plugins']['path'] . $url[0])) {

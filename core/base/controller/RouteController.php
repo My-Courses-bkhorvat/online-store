@@ -1,6 +1,6 @@
 <?php
 
-namespace core\base\controllers;
+namespace core\base\controller;
 
 use core\base\settings\Settings;
 use core\base\settings\ShopSettings;

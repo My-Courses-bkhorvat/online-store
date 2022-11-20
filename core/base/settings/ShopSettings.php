@@ -10,8 +10,10 @@ class ShopSettings
     private $baseSettings;
 
     private $routes = [
-        'admin' => [
-            'name' => 'sudo'
+        'plugins' => [
+            'path' => 'core/plugins/',
+            'hrurl' => false,
+            'dir' => 'controller'
         ]
     ];
 

@@ -10,27 +10,30 @@ class Settings
         'admin' => [
             'alias' => 'admin',
             'path' => 'core/admin/controller/',
-            'hrurl' => false
+            'hrUrl' => false,
+            'routes' => [
+                'product' => 'goods/getGoods/sale'
+            ]
         ],
         'settings' => [
             'path' => 'core/base/settings/'
         ],
         'plugins' => [
             'path' => 'core/plugins/',
-            'hrurl' => false,
+            'hrUrl' => false,
             'dir' => false
         ],
         'user' => [
-            'path' => 'core/user/controller',
-            'hrurl' => false,
+            'path' => 'core/user/controller/',
+            'hrUrl' => true,
             'routes' => [
-
+                'catalog' => 'site/hello/by'
             ]
         ],
         'default' => [
             'controller' => 'IndexController',
-            'inputMethod' => 'InputData',
-            'outPutMethod' => 'outPutData'
+            'inputMethod' => 'inputData',
+            'outputMethod' => 'outputData'
         ]
     ];
 

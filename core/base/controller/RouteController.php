@@ -4,8 +4,6 @@ namespace core\base\controller;
 
 use core\base\settings\Settings;
 
-//use core\base\settings\ShopSettings;
-
 class RouteController extends BaseController
 {
     static private $_instance;

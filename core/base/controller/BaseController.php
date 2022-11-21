@@ -42,9 +42,10 @@ abstract class BaseController
         $inputData = $args['inputMethod'];
         $outputData = $args['outputMethod'];
 
-        $this->$inputData();
+        $data = $this->$inputData();
 
-        $this->page = $this->$outputData();
+        if (method_exists($this, $outputData)) $this->page = $this->$outputData($data);
+            elseif ($data) $this->page = $data;
 
         if ($this->errors) {
             $this->writeLog();

@@ -12,6 +12,8 @@ class IndexController extends BaseController
         $name = 'Masha';
         $surname = 'Ivanova';
 
+        $this->name = 'Ivan';
+
         return compact('name', 'surname');
     }
 

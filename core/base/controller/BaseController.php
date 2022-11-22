@@ -45,7 +45,7 @@ abstract class BaseController
         $data = $this->$inputData();
 
         if (method_exists($this, $outputData)) $this->page = $this->$outputData($data);
-            elseif ($data) $this->page = $data;
+        elseif ($data) $this->page = $data;
 
         if ($this->errors) {
             $this->writeLog();
@@ -73,6 +73,10 @@ abstract class BaseController
 
     protected function getPage()
     {
-        exit($this->page);
+        if (is_array($this->page)) {
+            foreach ($this->page as $block) echo $block;
+        } else {
+            echo $this->page;
+        }
     }
 }

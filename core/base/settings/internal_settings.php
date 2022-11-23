@@ -56,8 +56,6 @@ function autoloadMainClasses($class_name)
 {
     $class_name = str_replace('\\', '/', $class_name);
 
-    include_once $class_name . '.php';
-
     if (!@include_once $class_name . '.php') {
         throw new RouteException("Не правильне ім'я файлу для підключення - " . $class_name);
     }

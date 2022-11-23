@@ -8,7 +8,7 @@ use core\base\settings\Settings;
 abstract class BaseController
 {
 
-    use \core\base\controller\BaseMethods;
+    use BaseMethods;
 
     protected $page;
     protected $errors;

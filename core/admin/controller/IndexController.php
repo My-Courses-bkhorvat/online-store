@@ -3,14 +3,18 @@
 namespace core\admin\controller;
 
 use core\base\controller\BaseController;
-use core\base\model\BaseModel;
+use core\admin\model\Model;
 
 class IndexController extends BaseController
 {
 
     protected function inputData() {
 
-        $db = BaseModel::instance();
+        $db = Model::instance();
+
+        $query = "SELECT * FROM article";
+
+        $res =  $db->query($query);
 
         exit('I am admin panel.');
     }

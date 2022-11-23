@@ -37,4 +37,10 @@ trait BaseMethods
             return trim(strip_tags($str));
         }
     }
+
+    protected function clearNum($num) {
+        return $num * 1;
+    }
+
+
 }

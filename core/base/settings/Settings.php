@@ -82,7 +82,7 @@ class Settings
                 } else {
                     if (is_int($key)) {
                         if (!in_array($value, $base)) {
-                            array_push($base, value);
+                            array_push($base, $value);
                         }
                         continue;
                     }

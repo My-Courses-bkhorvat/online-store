@@ -44,8 +44,13 @@ abstract class BaseController
 
         $data = $this->$inputData();
 
-        if (method_exists($this, $outputData)) $this->page = $this->$outputData($data);
-        elseif ($data) $this->page = $data;
+        if (method_exists($this, $outputData)) {
+            $page = $this->$outputData($data);
+            if ($page) $this->page = $page;
+        }
+        elseif ($data) {
+            $this->page = $data;
+        }
 
         if ($this->errors) {
             $this->writeLog();

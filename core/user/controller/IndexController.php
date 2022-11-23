@@ -9,17 +9,19 @@ class IndexController extends BaseController
 
     protected function inputData()
     {
-        $name = 'Masha';
-        $surname = 'Ivanova';
+        $name = 'Ivan';
 
-        $this->name = 'Ivan';
+        $header = $this->render(TEMPLATE . 'header');
+        $content = $this->render('', compact('name'));
+        $footer = $this->render(TEMPLATE . 'footer');
 
-        return compact('name', 'surname');
+        return compact('header', 'content', 'footer');
     }
 
     protected function outputData()
     {
         $vars = func_get_arg(0);
-        exit($this->render('', $vars));
+
+        $this->page = $this->render(TEMPLATE . 'templater' , $vars);
     }
 }

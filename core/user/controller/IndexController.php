@@ -9,7 +9,7 @@ class IndexController extends BaseController
 
     protected function inputData()
     {
-        $this->init();
+
         exit();
     }
 }

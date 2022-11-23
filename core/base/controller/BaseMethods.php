@@ -53,4 +53,20 @@ trait BaseMethods
     {
         return isset($_SERVER['HTTP_X_ REQUESTED_WITH']) && $_SERVER['HTTP_X_ REQUESTED_WITH'] = 'XMLHttpRequest';
     }
+
+    protected function redirect($http = false, $code = false)
+    {
+        if ($code) {
+            $codes = ['301' => 'HTTP/1.1 301 Move Permanently'];
+
+            if ($codes[$code]) header($codes[$code]);
+        }
+
+        if ($http) $redirect = $http;
+            else $redirect = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : PATH;
+
+            header("Location: $redirect");
+
+            exit;
+    }
 }

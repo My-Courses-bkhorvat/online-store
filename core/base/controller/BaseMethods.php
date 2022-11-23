@@ -28,4 +28,13 @@ trait BaseMethods
             }
         }
     }
+
+    protected function clearStr($str) {
+        if (is_array($str)) {
+            foreach ($str as $key => $item) $str[$key] = trim(strip_tags($item));
+            return $str;
+        } else {
+            return trim(strip_tags($str));
+        }
+    }
 }

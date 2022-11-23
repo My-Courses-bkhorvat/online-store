@@ -25,4 +25,4 @@ const PATH = '/';
 const HOST = 'localhost';
 const USER = 'root';
 const PASS = '';
-const DB_NAME = 'online_store';
+const DB_NAME = 'onlinestore';

@@ -46,7 +46,7 @@ const ADMIN_CSS_JS = [
  * path for css, js for user
  */
 const USER_CSS_JS = [
-    'styles' => [],
+    'styles' => ['css/style.css'],
     'scripts' => []
 ];
 

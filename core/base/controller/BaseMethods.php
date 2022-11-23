@@ -69,4 +69,13 @@ trait BaseMethods
 
             exit;
     }
+
+    protected function writeLog($message, $file = 'log.txt', $event = 'Fault')
+    {
+        $dateTime = new \DateTime();
+
+        $str =  $event . ': ' . $dateTime->format('d-m-Y G-i-s') . ' - ' . $message . '\r\n';
+
+        file_put_contents('log/' . $file, $str, FILE_APPEND);
+    }
 }

@@ -207,8 +207,19 @@ class BaseModel
                     }
 
                     $where .= $table . $key . ' LIKE ' . "'" . $item . "' $condition";
+                } else {
+
+                    if (strpos($item, 'SELECT') === 0) {
+                        $where .= $table . $key . $operand . '(' . $item . ") $condition";
+                    } else {
+                        $where .= $table . $key . $operand . "'" . $item . "' $condition";
+                    }
                 }
             }
+
+            $where = substr($where, 0, strrpos($where, $condition));
         }
+
+        return $where;
     }
 }

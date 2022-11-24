@@ -1,0 +1,4 @@
+Fault: 24-11-2022 16-37-43 - Не коректна директорія сайту.
+file C:\OSPanel\domains\onlineStore\core\base\controller\RouteController.php
+In line 97
+\r\n

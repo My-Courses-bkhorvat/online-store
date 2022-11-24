@@ -92,4 +92,19 @@ class BaseModel
 
         return $this->query($query);
     }
+
+    protected function createFields($table = false, $set)
+    {
+        $set['fields'] = (is_array($set['fields']) && !empty($set['fields'])) ? $set['fields'] : ['*'];
+
+        $table = $table ? $table . '.' : '';
+
+        $fields = '';
+
+        foreach ($set['fields'] as $field) {
+            $fields .= $table . $field . ',';
+        }
+
+        return $fields;
+    }
 }

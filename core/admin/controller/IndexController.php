@@ -8,13 +8,14 @@ use core\admin\model\Model;
 class IndexController extends BaseController
 {
 
-    protected function inputData() {
+    protected function inputData()
+    {
 
         $db = Model::instance();
 
-        $query = "SELECT * FROM article";
+        $table = 'category';
 
-        $res =  $db->query($query);
+        $res = $db->get();
 
         exit('I am admin panel.');
     }

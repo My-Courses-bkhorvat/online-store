@@ -180,8 +180,7 @@ class BaseModel
                     } else {
                         if (is_array($item)) {
                             $temp_item = $item;
-                        }
-                        else {
+                        } else {
                             $temp_item = explode(',', $item);
                         }
 
@@ -191,9 +190,23 @@ class BaseModel
                             $in_str .= "'" . trim($value) . "',";
                         }
                     }
-                    $where .= $table . $key . ' ' . $operand . ' (' . trim($in_str, ',') .  ') ' . $condition;
+                    $where .= $table . $key . ' ' . $operand . ' (' . trim($in_str, ',') . ') ' . $condition;
 
-                    exit();
+                } elseif (strpos($operand, 'LIKE') !== false) {
+
+                    $like_template = explode('%', $operand);
+
+                    foreach ($like_template as $lt_key => $lt) {
+                        if (!$lt) {
+                            if (!$lt_key) {
+                                $item = '%' . $item;
+                            } else {
+                                $item .= '%';
+                            }
+                        }
+                    }
+
+                    $where .= $table . $key . ' LIKE ' . "'" . $item . "' $condition";
                 }
             }
         }
